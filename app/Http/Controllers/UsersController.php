@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Requests\UserRequest;
 
 class UsersController extends Controller
 {
@@ -18,9 +19,9 @@ class UsersController extends Controller
     }
 
     //修改数据提交
-    public function update(Request $request, User $user){
-        //
+    public function update(UserRequest $request, User $user){
+        $user->update($request->all());
+        return redirect()->route('users.show',$user->id)->with('success','个人信息更新成功！');
     }
-
 
 }
