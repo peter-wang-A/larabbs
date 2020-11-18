@@ -10,13 +10,16 @@
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/brands';
 
+
 /* universal */
 
 body {
   font-family: Helvetica, "Microsoft YaHei", Arial, sans-serif;
   font-size: 14px;
 }
-
+li{
+  list-style: none;
+}
 /* header */
 
 .navbar-static-top {
