@@ -16,7 +16,7 @@ class UsersController extends Controller
         $this->middleware('auth', ['excepy' => ['show']]);
     }
     //个人中心展示页面
-    public function show(User $user)
+    public function show(User $user,Topic $topic)
     {
         $topics = Topic::where('user_id',$user->id)->paginate(30);
         return view('users.show', compact(['user','topics']));
