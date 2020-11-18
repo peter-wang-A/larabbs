@@ -29,7 +29,11 @@
     {{-- 用户发布的内容 --}}
     <div class="card ">
       <div class="card-body">
-        {{-- @include('topics._topic_list', ['topics' => $topics]) --}}
+        @include('topics._topic_list', ['topics' => $topics])
+        {{-- 分页 --}}
+        <div class="mt-5">
+          {!! $topics->appends(Request::except('page'))->render() !!}
+        </div>
       </div>
     </div>
 

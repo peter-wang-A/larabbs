@@ -18,10 +18,8 @@ class UsersController extends Controller
     //个人中心展示页面
     public function show(User $user)
     {
-        // $topics = Topic::paginate(10)->where('user_id',$user->id);
-        // dd($topics);
-
-        return view('users.show', compact('user'));
+        $topics = Topic::where('user_id',$user->id)->paginate(30);
+        return view('users.show', compact(['user','topics']));
     }
 
     //修改资料页面
