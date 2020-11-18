@@ -29,7 +29,7 @@
     {{-- 用户发布的内容 --}}
     <div class="card ">
       <div class="card-body">
-        暂无数据 ~_~
+        @include('topics._topic_list', ['topics' => $topics])
       </div>
     </div>
 
