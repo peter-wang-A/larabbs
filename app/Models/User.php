@@ -23,11 +23,20 @@ class User extends Authenticatable implements MustVerifyEmailContract
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //一个作者有多个话题
     public function topics()
     {
         return $this->hasMany(Topic::class);
     }
 
+
+    //一个作者有多条评论
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+    //权限验证封装方法
     public function isAuthorOf($model)
     {
         return $this->id == $model->user_id;
