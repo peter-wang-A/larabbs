@@ -43,19 +43,18 @@
             {!! $topic->body !!}
           </div>
 
-          @if (Auth::id()==$topic->user_id)
+          @can('update', $topic)
           <div class="operate">
             <hr>
             <a href="{{ route('topics.edit', $topic->id) }}" class="btn btn-outline-secondary btn-sm" role="button">
               <i class="far fa-edit"></i> 编辑
             </a>
 
-            <a   href="{{route('topics.destroy',$topic->id)}}" class="btn btn-outline-secondary btn-sm" role="button">
+            <a   href="{{ route('topics.destroy', $topic->id) }}" class="btn btn-outline-secondary btn-sm" role="button">
               <i class="far fa-trash-alt"></i> 删除
             </a>
           </div>
-          @endif
-
+          @endcan
 
         </div>
       </div>
