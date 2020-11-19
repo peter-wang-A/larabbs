@@ -33,11 +33,10 @@
                         <li class="nav-item"><a class="nav-link active bg-transparent" href="#">Ta 的话题</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Ta 的回复</a></li>
                     </ul>
-                    @include('users._topics', ['topics' => $user->topics()->recent()->paginate(5)])
+                    @include('users._topics', ['topics' => $user->topics()->recent()->paginate(2)])
                     {{-- 分页 --}}
                     <div class="mt-5">
                         {!! $topics->appends(Request::except('page'))->render() !!}
-
                     </div>
                 </div>
 

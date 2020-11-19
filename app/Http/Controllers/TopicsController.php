@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TopicRequest;
 use App\Models\Category;
+use App\Models\Reply;
 use Auth;
 use App\Handlers\ImageUploadHandler;
 
@@ -26,6 +27,7 @@ class TopicsController extends Controller
 
     public function show(Request $request, Topic $topic)
     {
+        // $replies = $topic->replies()->with('user')->get();
           // URL 矫正
           if ( ! empty($topic->slug) && $topic->slug != $request->slug) {
             return redirect($topic->link(), 301);
