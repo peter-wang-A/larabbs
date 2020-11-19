@@ -6,6 +6,7 @@ class Topic extends Model
 {
     protected $fillable = ['title', 'body', 'category_id', 'excerpt', 'slug'];
 
+
     //一个话题属于一个分类
     public function category()
     {

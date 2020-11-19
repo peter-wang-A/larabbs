@@ -58,7 +58,7 @@
         </div>
     </div>
 @endsection
-@section('styles')
+{{-- @section('styles')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/simditor.css') }}">
 @stop
 
@@ -84,5 +84,5 @@
       pasteImage: true,
     });
   });
-</script>
-@stop
+</script> --}}
+{{-- @stop --}}
