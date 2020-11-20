@@ -28,8 +28,8 @@ class TopicsController extends Controller
     public function show(Request $request, Topic $topic)
     {
         // $replies = $topic->replies()->with('user')->get();
-          // URL 矫正
-          if ( ! empty($topic->slug) && $topic->slug != $request->slug) {
+        // URL 矫正
+        if (!empty($topic->slug) && $topic->slug != $request->slug) {
             return redirect($topic->link(), 301);
         }
         return view('topics.show', compact('topic'));
@@ -70,6 +70,7 @@ class TopicsController extends Controller
     public function destroy(Topic $topic)
     {
         $this->authorize('destroy', $topic);
+        \DB::table('replies')->where('topic_id', $topic->id)->delete();
         $topic->delete();
 
         return redirect()->route('topics.index')->with('success', '删除成功!');
@@ -99,6 +100,4 @@ class TopicsController extends Controller
         }
         return $data;
     }
-
-
 }
