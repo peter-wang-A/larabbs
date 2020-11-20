@@ -8,6 +8,7 @@ use App\Models\Topic;
 use App\Http\Requests\UserRequest;
 use App\Handlers\ImageUploadHandler;
 
+
 class UsersController extends Controller
 {
     //权限验证
@@ -16,10 +17,10 @@ class UsersController extends Controller
         $this->middleware('auth', ['excepy' => ['show']]);
     }
     //个人中心展示页面
-    public function show(User $user,Topic $topic)
+    public function show(User $user, Topic $topic, Request $request)
     {
-        $topics = Topic::where('user_id',$user->id)->paginate(30);
-        return view('users.show', compact(['user','topics']));
+        $topics = Topic::where('user_id', $user->id)->paginate(30);
+        return view('users.show', compact(['user', 'topics']));
     }
 
     //修改资料页面
@@ -32,7 +33,7 @@ class UsersController extends Controller
     //修改数据提交
     public function update(UserRequest $request, ImageUploadHandler $uploader, User $user)
     {
-        $this->authorize('update',$user);
+        $this->authorize('update', $user);
         $data = $request->all();
         if ($request->avatar) {
             $result = $uploader->save($request->avatar, 'avatar', $user->id, 208);
