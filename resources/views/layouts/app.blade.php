@@ -43,6 +43,7 @@
   <!-- Scripts -->
   <script src="{{ mix('js/app.js') }}"></script>
   @yield('scripts')
+  @yield('preject-cord')
 
 </body>
 

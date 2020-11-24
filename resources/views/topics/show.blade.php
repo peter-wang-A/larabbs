@@ -76,3 +76,11 @@
     </div>
   </div>
 @stop
+
+@section('preject-cord')
+    <script>
+      // $(document).ready(function(){
+      //   alert('a');
+      // })
+    </script>
+@endsection
